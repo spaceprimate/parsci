@@ -1,0 +1,11 @@
+// to run:      mpicc -g test1.c -o tweet -lcurl
+// to run:      mpirun -np 2 tweet
+
+
+// todo: see the "next_token" at next_token":"b26v89c19zqg8o3fosbvxc1hiph7n5eruiuv2ccff908t"}
+
+
+
+// helpful links:   https://developer.twitter.com/en/docs/twitter-api/v1/tweets/search/guides/standard-operators
+//                  https://developer.twitter.com/en/docs/twitter-api/tweets/search/integrate/paginate
+//                  https://developer.twitter.com/en/docs/twitter-api/tweets/search/quick-start

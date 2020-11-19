@@ -19,6 +19,11 @@
 //                  https://developer.twitter.com/en/docs/twitter-api/tweets/search/quick-start
 
 
+int function_pt(void *ptr, size_t size, size_t nmemb, void *stream){
+    printf("%d", atoi(ptr));
+    //printf("size: %d\n", (int)nmemb);
+    return nmemb;
+}
 
 int main( int argc, char *argv[] )
 {
@@ -79,7 +84,7 @@ int main( int argc, char *argv[] )
     // curl_easy_setopt(curl, CURLOPT_URL, "localhost");
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
- 
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, function_pt); 
     res = curl_easy_perform(curl);
     /* Check for errors */ 
     if(res != CURLE_OK)
