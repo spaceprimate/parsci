@@ -92,5 +92,13 @@ int main( int argc, char *argv[] )
     /* free the custom headers */ 
     curl_slist_free_all(chunk);
   }
+
+
+
+    MPI_Finalize();
+
+
+
+
   return 0;
 }
