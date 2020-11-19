@@ -1,0 +1,7 @@
+[A-Za-z]+@[A-Za-z]+\.com                     matches first only
+[A-Za-z\.]+@[A-Za-z]+\.(com|edu)             first 2
+[A-Za-z\.\-0-9]+@[A-Za-z\-]+\.(com|edu|net)  matches all
+
+CoreyMSchafer@gmail.com
+corey.schafer@university.edu
+corey-321-schafer@my-work.net

@@ -1,0 +1,20 @@
+  
+curl -u "3HEXsSYOT0dXPN1EDpLtjOjWf:kOB9T9Ryn5TV8LkJFfAhkVDuUXCAIGSb9yj7cKtR5WnKg9SjIc" \
+  --data 'grant_type=client_credentials' \
+  'https://api.twitter.com/oauth2/token'
+
+
+
+{"token_type":"bearer","access_token":"AAAAAAAAAAAAAAAAAAAAALRuCwEAAAAA9u01nsZ%2Fl3RJTYPQtD%2FHLYppQr8%3DMvcUErJQeGcaLkuO9j4iq5TsR1GIX6TUJc1cRKpiApWPR9ziqf"}
+
+
+  
+curl -X POST "https://api.twitter.com/oauth2/token" \
+-H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" \
+-u 3HEXsSYOT0dXPN1EDpLtjOjWf:kOB9T9Ryn5TV8LkJFfAhkVDuUXCAIGSb9yj7cKtR5WnKg9SjIc \
+--data-urlencode "grant_type=client_credentials"
+
+
+
+curl -X GET -H "Authorization: Bearer AAAAAAAAAAAAAAAAAAAAALRuCwEAAAAA9u01nsZ%2Fl3RJTYPQtD%2FHLYppQr8%3DMvcUErJQeGcaLkuO9j4iq5TsR1GIX6TUJc1cRKpiApWPR9ziqf"  \
+"https://api.twitter.com/labs/2/tweets/1138505981460193280?expansions=attachments.media_keys&tweet.fields=created_at,author_id,lang,source,public_metrics,context_annotations,entities"

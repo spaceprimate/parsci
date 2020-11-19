@@ -1,0 +1,67 @@
+1. 
+
+SAMPLE INPUT / OUTPUT - relatively small number
+
+TABLE WITH TIMES FOR SINGLE THREAD AND 2,3,4,THREADS
+
+discuss your findings
+
+Are you getting your expected
+results? What challenges did you face and how did you overcome them?
+
+
+We see in these results that increasing the number of threads actually increases the time to compute recursive fibonnaci. This is likely because recursive fibonnaci is a fundamentally linear equation- each iteration requires the output of the previous iteration, so instead of improving performance, parallel processing only adds overhead.
+One could envision a more efficient algorithm that stores previously calculated results in a hash table- this might eliminate some expesive calculations and may be a better candidate for parallelization.
+
+comment everything
+
+
+
+
+2.
+
+SAMPLE INPUT / OUTPUT - relatively small number
+
+TABLE WITH TIMES FOR NAIVE, SINGLE THREAD AND 2,3,4 THREADS
+
+
+discuss your findings
+
+
+
+
+
+comment everything
+
+
+
+
+
+CALCULATION TIMES: 
+naive:          5.160276 seconds
+optimized:      2.345840 seconds
+4 threads:      0.643214 seconds
+3 threads:      1.331741 seconds
+2 threads:      1.144890 seconds
+1 threads:      2.338455 seconds
+
+
+
+
+
+
+general
+
+README.MD
+
+
+
+MOVE TO NEW DIR / OR ARCHIVE
+
+PUT SOLUTION FOR EACH PROBLEM IN A SEparate directory
+
+[] -    submission dir format
+            name final zip HW2_Daniel_Murphy.zip
+            directories: 
+            HW2_Daniel_Murphy_1
+            HW2_Daniel_Murphy_2

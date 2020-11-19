@@ -1,0 +1,126 @@
+The general form for invoking gcc is...
+gcc options files
+where options is a list of command flags that control how the compiler works, and
+files is a list of files that gcc reads or writes depending on the options
+Command-line options
+
+example: 
+gcc main.c module1.c module2.c -o program
+
+The above line equivalently could be re-written to separate out the three compilation
+steps of the .c files followed by one link step to build the program.
+gcc -c main.c ## Each of these compiles a .c
+gcc -c module1.c
+gcc -c module2.c
+gcc main.o module1.o module2.o -o program ## This line links the .o's
+## to build the program
+
+
+Like most Unix programs, gcc supports many command-line options to control its
+operation. They are all documented in its man page. We can safely ignore most of these
+options, and concentrate on the most commonly used ones: -c, -o, -g, -Wall,
+-I, -L, and -l.
+
+-c 
+    files Direct gcc to compile the source files into an object files without going
+    through the linking stage. Makefiles (below) use this option to compile
+    files one at a time.
+
+-o 
+    file Specifies that gcc's output should be named file. If this option is not
+    specified, then the default name used depends on the context...(a) if
+    compiling a source .c file, the output object file will be named with the
+    same name but with a .o extension. Alternately, (b) if linking to create
+    an executable, the output file will be named a.out. Most often, the -o
+    option is used to specify the output filename when linking an
+    executable, while for compiling, people just let the default .c/.o
+    naming take over.
+    It's a memorable error if your -o option gets switched around in the
+    command line so it accidentally comes before a source file like
+    "...-o foo.c program" -- this can overwrite your source file --
+    bye bye source file!
+
+-g 
+    Directs the compiler to include extra debugging information in its
+    output. We recommend that you always compile your source with this
+    option set, since we encourage you to gain proficiency using the
+    debugger such as gdb (below).
+    Note -- the debugging information generated is for gdb, and could
+    possibly cause problems with other debuggers such as dbx.
+
+-Wall 
+    Give warnings about possible errors in the source code. The issues
+    noticed by -Wall are not errors exactly, they are constructs that the
+    compiler believes may be errors. We highly recommend that you
+    compile your code with -Wall. Finding bugs at compile time is soooo
+    much easier than run time. the -Wall option can feel like a nag, but it's
+    worth it. If a student comes to me with an assignment that does not
+    work, and it produces -Wall warnings, then maybe 30% of the time,
+    the warnings were a clue towards the problem. 30% may not sound
+    like that much, but you have to appreciate that it's free debugging.
+    Sometimes -Wall warnings are not actually problems. The code is ok,
+    and the compiler just needs to be convinced. Don't ignore the warning.
+    Fix up the source code so the warning goes away. Getting used to
+    compiles that produce "a few warnings" is a very bad habit.
+    Here's an example bit of code you could use to assign and test a flag
+    variable in one step...
+    int flag;
+        if (flag = IsPrime(13)) {
+            ...
+        }
+    The compiler will give a warning about a possibly unintended
+    assignment, although in this case the assignment is correct. This
+    warning would catch the common bug where you meant to type == but
+    typed = instead. To get rid of the warning, re-write the code to make
+    the test explicit...
+
+        int flag;
+        if ((flag = IsPrime(13)) != 0) {
+            ...
+        }           
+    This gets rid of the warning, and the generated code will be the same
+    as before. Alternately, you can enclose the entire test in another set of
+    parentheses to indicate your intentions. This is a small price to pay to
+    get -Wall to find some of your bugs for you.
+
+-Idir 
+    Adds the directory dir to the list of directories searched for #include
+    files. The compiler will search several standard directories
+    automatically. Use this option to add a directory for the compiler to
+    search. There is no space between the "-I" and the directory name. If
+    the compile fails because it cannot find a #include file, you need a -I to
+    fix it.
+
+    Extra: Here's how to use the unix "find" command to find your
+    #include file. This example searches the /usr/include directory for all
+    the include files with the pattern "inet" in them...
+    nick% find /usr/include -name '*inet*'
+    /usr/include/arpa/inet.h
+    /usr/include/netinet
+    /usr/include/netinet6
+
+-lmylib 
+    (lower case 'L') Search the library named mylib for unresolved
+    symbols (functions, global variables) when linking. The actual name of
+    the file will be libmylib.a, and must be found in either the default
+    locations for libraries or in a directory added with the -L flag (below).
+    The position of the -l flag in the option list is important because the
+    linker will not go back to previously examined libraries to look for
+    unresolved symbols. For example, if you are using a library that
+    requires the math library it must appear before the math library on the
+    command line otherwise a link error will be reported. Again, there is
+    no space between the option flag and the library file name, and that's a
+    lower case 'L', not the digit '1'. If your link step fails because a symbol
+    cannot be found, you need a -l to add the appropriate library, or
+    somehow you are compiling with the wrong name for the function or
+
+-Ldir 
+    gAldodbsa lt hvea rdiairbelcet.ory dir to the list of directories searched for library files
+    specified by the -l flag. Here too, there is no space between the
+    option flag and the library directory name. If the link step fails because
+    a library file cannot be found, you need a -L, or the library file name is
+    wrong.
+
+
+-fopenmp
+    for working with open mp

@@ -1,0 +1,63 @@
+SYMBOLIC CONSTANTS			NOT VARIABLES!
+	#define MYCONSTANT 300		/* MYCONSTANT will substitute 300 */
+
+DATA TYPES
+	char
+	int
+	float		single preceision floating point number
+	double		double precesion floating point number
+
+	qualifiers
+		short
+		long
+		signed		applies to char or int
+		unsigned	..
+
+VARIABLE DECLARATION		declare before use
+	int lower, upper, step;
+
+STRUCTS 
+    struct      allows the grouping of composite types
+        example: 
+            struct fraction {
+                int numerator;
+                int denominator;
+            }; // Don't forget the semicolon!
+
+typedef			typedef provides a way to name a data type, which makes for more legible code
+			typedef int *int_pointer // creates a pointer to type int with name int_pointer
+				this can be assigned a location thusly
+					int_pointer ip; //this can be skipped by just doing int *ip, but is less clear
+        example
+                typedef struct treenode* Tree;
+                struct treenode {
+                    int data;
+                    Tree smaller, larger;    // equivalently, this line could say
+                };                          //  struct treenode *smaller, *larger
+
+POINTERS!
+    &       gives the address of an object
+    *       dereferencing operator: accesses the object the pointer points to.
+    **      pointer to a pointer: accesses the pointer that the pointer points to. 
+    EXAMPLE
+      void square(int* inputRef){
+            *inputRef = *inputRef * *inputRef;
+        }
+        void demo(){
+            int myValue = 100;
+            int* myPtr = &myValue;   
+            square(myPtr);
+            printf("the square is: %d\n", *myPtr);
+
+        }
+
+STRINGS
+    null terminated with char '\0' 
+    String library functions
+        strcpy(char dest[], const char source[])
+        strlen(const char string[])                 // string length not including trailing '\0'
+    EXAMPLE 1
+        char localString[10];
+        strcpy(localString,"binky");
+
+

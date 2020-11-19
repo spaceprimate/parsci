@@ -1,0 +1,46 @@
+        PERMISSION      COMMAND EXAMPLE   
+
+         U   G   O
+        rwx rwx rwx     chmod 777 filename      
+        rwx rwx r-x     chmod 775 filename
+        rwx r-x r-x     chmod 755 filename
+        rw- rw- r--     chmod 664 filename
+        rw- r-- r--     chmod 644 filename
+
+        U = User 
+        G = Group 
+        O = Other
+
+        r = Read
+        w = write
+        x = execute 
+        - = no access
+
+Symbolic syntax:
+        [ugo] [[+-=][rwx]]              [user type to target][[add, remove, or set to][read and or write and or execute]]
+        chmod u=rwx,g=rx,o=r myfile     
+        chmod go-rwx myDirectory        removes all permissions from group and other users
+
+Options
+        -c      verbose output when changes are made
+        -f      silent
+        -v      verbose
+        -R      recursive
+        --help  help
+
+Here’s how the octal numbers break down:
+
+Permissions:
+	400     read by owner
+	040     read by group
+	004     read by anybody (other)
+	200     write by owner
+	020     write by group
+	002     write by anybody
+	100     execute by owner
+	010     execute by group
+	001     execute by anybody
+
+So to manually set permissions, simply add up the columns.  So for example myscript.php you may want: Read,Write,Execute by you, Read,Write,Execute by group, read, execute by world = 400+200+100+040+020+010+004+001 = 775
+
+# chmod 775 myscript.php

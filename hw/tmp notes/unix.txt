@@ -1,0 +1,178 @@
+<<<<<<< HEAD:unix/unix.txt
+========================================================================================================
+SYSTEMS
+
+
+
+
+
+
+
+
+==========================================================================================================
+
+GENERAL
+=========================================================================================================
+Get root access         sudo
+                        sudo -i     interactive root shell
+                        sudo -s     root access in current shell
+
+run multiple items: 	use a semi colon!	/bin/ls; /bin/pwd;
+
+view processes          ps
+
+compile					gcc
+	w/ file				-o file		eg. gcc part1.c student.c -p part1
+
+Preprocess				cpp			eg. cpp hello.c hello.i
+Compile to Assembly		cc1
+	Intel-style			cc1 fileIn fileOut -masm=Intel
+
+
+man             show manual for command, making this guide redundant lol
+
+cat						cat [options] [filenames] [-] [filenames]
+						read file: 				cat filename
+						save contents of file:	cat file1 > outputFile
+						output thorugh filter: 	cat file1 | filter
+						concatenate: 			cat file1 file2 file3 
+						create file: 			cat > filename 
+
+mkdir           makes a directory
+                -p makes an entire path
+
+scp             [options] username1@source_host:directory1/filename1 username2@destination_host:directory2/filename2
+
+zip             zip -r directory.zip directory  // zip entire directory recursively
+unzip           unzip fileToUnzip.zip
+                unzip fileToUnzip.zip -d arbitraryDirToUnzipTo
+
+tar		tar simply combines files into a single (uncompressed) archive. To compress, you can use gzip commands
+                -x      extract
+                -v      verbose
+                -f      file
+                -c      create
+		combine files -		tar -cvf outputName.tar file1 file2 file3
+		separate files - 	tar -xvf file.tar
+		combine and compress - 	tar -cvzf file.tar.gz file1 file2 file3
+		unzip			tar -xvzf file.tar.gz
+
+ls              ls -i   // list file's index
+                ls -l   // long format
+                ls -la  // long with hidden
+                ls -lha // long with readable file size
+                ls -d list directories with "*/"
+
+service         sudo service tomcat7 restart
+
+
+ln		symbolic link: eg. ln -s some_dir/another_dir/outputs outputs
+hexdump			xxd filename		binary dump: xxd -b filename
+
+cp		copy - takes -r flag
+mv		move file, can be used as rename (files and directories)
+                move multiple files: 
+                    mv -t fileOne fileTwo fileThree
+                    mv file1.txt file.2.txt file3.txt folder
+                    mv *.txt folder         // with regex
+
+
+
+rm 		remove
+
+common flags	-c - COMMAND, eg. sh -c
+		-d - debug
+		-f - force
+		-h - human readable 	or help
+		-i - confirmation (interactive)
+		-r or -R - recursive
+		-q or -s: quite, no error msgs
+		-v - verbose
+		-V - show version info
+		
+Redirection Operators
+		<		Gives input to Command 
+		<> 		Gives input to command with read/write mode
+		>		Direct output of command to file. 
+
+Audio mp3 aiff, etc
+    OSX         afplay          -h for help
+=======
+Get root access         sudo
+                        sudo -i     interactive root shell
+                        sudo -s     root access in current shell
+
+run multiple items: 	use a semi colon!	/bin/ls; /bin/pwd;
+
+compile					gcc
+	w/ file				-o file		eg. gcc part1.c student.c -p part1
+
+Preprocess				cpp			eg. cpp hello.c hello.i
+Compile to Assembly		cc1
+	Intel-style			cc1 fileIn fileOut -masm=Intel
+
+cat						cat [options] [filenames] [-] [filenames]
+						read file: 				cat filename
+						save contents of file:	cat file1 > outputFile
+						output thorugh filter: 	cat file1 | filter
+						concatenate: 			cat file1 file2 file3 
+						create file: 			cat > filename 
+
+mkdir           makes a directory
+                -p makes an entire path
+
+scp             [options] username1@source_host:directory1/filename1 username2@destination_host:directory2/filename2
+
+zip             zip -r directory.zip directory  // zip entire directory recursively
+unzip           unzip fileToUnzip.zip
+                unzip fileToUnzip.zip -d arbitraryDirToUnzipTo
+
+tar		tar simply combines files into a single (uncompressed) archive. To compress, you can use gzip commands
+		combine files -		tar -cvf outputName.tar file1 file2 file3
+		separate files - 	tar -xvf file.tar
+		combine and compress - 	tar -cvzf file.tar.gz file1 file2 file3
+		unzip			tar -xvzf file.tar.gz
+
+ls              ls -i   // list file's index
+                ls -l   // long format
+                ls -la  // long with hidden
+                ls -lha // long with readable file size
+
+service         sudo service tomcat7 restart
+
+
+ln		symbolic link: eg. ln -s some_dir/another_dir/outputs outputs
+hexdump			xxd filename		binary dump: xxd -b filename
+
+cp		copy - takes -r flag
+mv		move file, can be used as rename (files and directories)
+                move multiple files: mv -t fileOne fileTwo fileThree
+
+rm 		remove
+
+common flags	-c - COMMAND, eg. sh -c
+		-d - debug
+		-f - force
+		-h - human readable 	or help
+		-i - confirmation (interactive)
+		-r or -R - recursive
+		-q or -s: quite, no error msgs
+		-v - verbose
+		-V - show version info
+		
+Redirection Operators
+		<		Gives input to Command 
+		<> 		Gives input to command with read/write mode
+		>		Direct output of command to file. 
+
+Audio mp3 aiff, etc
+    OSX         afplay          -h for help
+	
+	
+chron jobs
+	view all chrons for a specific user: 			crontab -u testuser -l
+	*		*		*				*		*
+	minute	hour	day of month	month	day of week
+	
+	
+>>>>>>> 46f582037fc90effdd0f2638cb0cb3ab962dc04c:unix.txt

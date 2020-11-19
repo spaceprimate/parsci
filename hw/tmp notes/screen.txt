@@ -1,0 +1,13 @@
+detach          d
+re-attach       screen -ls      lists screens
+                screen -r 84521 reattaches screen
+
+multi-screen
+create new      c
+next screen     n
+prev screen     p
+
+leave screen    k       kills the screen
+
+----------------
+note, all commands are precedded by ctrl-a

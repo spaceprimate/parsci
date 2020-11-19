@@ -1,0 +1,46 @@
+print fields
+	d, i		signed int
+	u		unsigned int
+	f,F		as a floating point number
+	e,E		double
+	g,G		double in normal or exponential notation
+	x,X		unsigned int as hex
+	o		unsigned int as octal
+	s		STRING null-terminated string
+	c		char
+	p		void
+	a,A		double in hex
+	n		print nothing
+
+flags field
+	-		left-align
+	+		prepend sign (plus or negative indicator)
+	 (space)	prepend sign (space or negative indicator)
+	0		prepends zeros for numeric types. Requires width option
+	
+
+width			appended at end of flag
+			eg. printf("%9d", myVar)
+				prints integer myVar preceeded by 9 spaces
+			printf("%09d", myVar)
+				same, but with 9 preceeding 0s
+
+precision		decimal point preceeding print field
+			eg. printf("%.3",4.9999999)
+				prints 5 
+			eg. printf("%.10",4.9999999)
+				prints 4.9999999900
+
+Special Character	Escape Sequence
+alert (beep)		\a
+backslash		\\
+backspace		\b
+carriage return		\r
+double quote		\"
+formfeed		\f
+horizontal tab		\t
+newline			\n
+null character		\0
+single quote		\'
+vertical tab		\v
+question mark		\?

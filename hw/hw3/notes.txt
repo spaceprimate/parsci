@@ -1,0 +1,16 @@
+resources: 
+http://www.mpi-forum.org
+http://www.mcs.anl.gov/research/projects/mpi/index.htm
+
+
+https://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/
+
+compiling: 
+mpicc -g p1.c -o p1
+
+running: 
+mpirun -np 2 p1
+
+
+
+https://edoras.sdsu.edu/~mthomas/sp17.605/lectures/MPI-MatMatMult.pdf
